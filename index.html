@@ -11,6 +11,33 @@
             color: white;
         }
 
+        .btn-go {
+            background-color: white;
+            color: black;
+            border-radius: 6px;
+            border: 1px solid rgba(27, 31, 35, .15);
+            text-decoration: none;
+            padding: 6px 16px;
+
+        }
+
+        .img-appIcon {
+            border: 3px solid white;
+            border-radius: 12px;
+        }
+
+        .txt-appName {
+            display: flex;
+            justify-content: center;
+            color: yellow;
+        }
+
+        .law {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
 
     </style>
 
@@ -18,31 +45,29 @@
 <body style="background-color: black;position: relative">
 <div style="text-align: center;">
     <div>
-        <img class="icon"
-             style="border: 3px solid white"
+        <img class="img-appIcon"
              src="./images/icon_magnet_circle.png" alt="app icon" width="200">
-        <div style="display: flex;justify-content: center;margin-bottom: 20px">
-            <h3 style="color:yellow;">态引引</h3>
-        </div>
 
-        <!--        <div style="display: flex;justify-content: center;margin-top: 10px">-->
-        <!--            <button style="display: block;">下载</button>-->
-        <!--        </div>-->
+        <h3 class="txt-appName">态引引</h3>
+
     </div>
+
+    <a class="btn-go" href="./versions.html" target="_blank">去下载 ></a>
+
+    <div style="margin-top: 30px"></div>
 
     <div>
         <h2 class="headline">新一代的社交脱单魔法师</h2>
         <h2 class="headline">APP一开，了不起！</h2>
         <h2 class="headline">根本停不下来，震撼了心魂！</h2>
-        <h2 class="headline" style="margin-top: 30px">最快今年10月上线，敬请期待</h2>
+        <div style="margin-top: 30px"></div>
+        <h2 class="headline">最快今年10月上线，敬请期待</h2>
 
     </div>
 
 </div>
 
-<div style="position: absolute;bottom:0;left:50%;transform: translate(-50%, -50%);">
-    <a href="https://beian.miit.gov.cn/" style="" target="_blank">桂ICP备2023013974号</a>
-</div>
+<a class="law" href="https://beian.miit.gov.cn/" target="_blank">桂ICP备2023013974号</a>
 
 </body>
 </html>
