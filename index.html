@@ -21,23 +21,29 @@
 
         }
 
-        .img-appIcon {
+        .appIcon {
             border: 3px solid white;
             border-radius: 12px;
         }
 
-        .txt-appName {
+        .appName {
             display: flex;
             justify-content: center;
             color: yellow;
         }
 
-
         .bottom {
-            position: absolute;
+            position: relative;
             bottom: 0;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            top: 50px;
+            text-align: center;
+            /*justify-content: center;*/
+            /*display: flex;*/
+            /*align-items: center;*/
+
+            /*left: 50%;*/
+            /*transform: translate(-50%, -50%);*/
+
         }
 
         .label {
@@ -54,10 +60,10 @@
 <body style="background-color: black;position: relative">
 <div style="text-align: center;">
     <div>
-        <img class="img-appIcon"
+        <img class="appIcon"
              src="./images/icon_magnet_circle.png" alt="app icon" width="200">
 
-        <h3 class="txt-appName">态引引</h3>
+        <h3 class="appName">态引引</h3>
 
     </div>
 
