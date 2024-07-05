@@ -5,33 +5,15 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        .headline {
-            text-align: center;
-        }
 
         .dim {
-            /*display: flex;*/
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .left {
-            /*float: left;*/
-            /*width: 50%;*/
-            /*position: relative;*/
-            /*left: 0;*/
-        }
-
-        .right {
-            /*float: right;*/
-            /*width: 50%;*/
-            /*position: relative;*/
-            /*right: 0;*/
-        }
-
-        .border {
-            /*border-style: solid;*/
+        .dimName {
+            color: gray;
         }
 
     </style>
@@ -42,26 +24,34 @@
     </script>
 </head>
 <body>
-<h2 class="headline">顾问认证详情</h2>
-<div class="border" style="margin: auto; max-width: 400px;border-style: solid;">
+<h2 style="text-align: center;">顾问认证详情</h2>
+<div style="margin: auto;
+            max-width: 400px;
+            border-style: solid;
+            padding: 10px">
     <p style="display: flex;
-  /*justify-content: center;*/
-  align-items: center;"><img style="width:50px;height:50px;border-radius: 25px"
-                             src="https://socialme.hopto.org/loveme/consultant_avatar/13_adf1e1b1b5e04839a433275ff308a9d8.jpg"
-                             alt="头像"
-    /><span>顾问小王</span>
+              align-items: center;">
+        <img style="width:50px;
+                    height:50px;
+                    border-radius: 25px"
+             src="https://socialme.hopto.org/loveme/consultant_avatar/13_adf1e1b1b5e04839a433275ff308a9d8.jpg"
+             alt="头像"/>
+        <span style="padding: 8px">小王</span>
     </p>
     <div style="max-width: 300px;">
-        <p class="dim border"><span class="left" style="color: gray">成功比例</span> <span class="right">10分</span></p>
-        <p class="dim border"><span class="left" style="color: gray">用时</span> <span class="right">10分</span></p>
-        <p class="dim border"><span class="left" style="color: gray">年龄分布</span> <span class="right">10分</span></p>
-        <p class="dim border"><span class="left" style="color: gray">颜值分布</span> <span class="right">10分</span></p>
-        <p class="dim border"><span class="left" style="color: gray">学历分布</span> <span class="right">10分</span></p>
-        <p class="dim border"><span class="left" style="color: gray">颜值逆差</span> <span class="right">10分</span></p>
-        <p class="dim border"><span class="left" style="color: gray">身高逆差</span> <span class="right">10分</span></p>
-        <p class="dim border"><span class="left" style="color: gray">花费</span> <span class="right">10分</span></p>
+        <p class="dim"><span class="dimName">成功比例</span> <span>10分</span></p>
+        <p class="dim"><span class="dimName">用时</span> <span>10分</span></p>
+        <p class="dim"><span class="dimName">年龄分布</span> <span>10分</span></p>
+        <p class="dim"><span class="dimName">颜值分布</span> <span>10分</span></p>
+        <p class="dim"><span class="dimName">学历分布</span> <span>10分</span></p>
+        <p class="dim"><span class="dimName">颜值逆差</span> <span>10分</span></p>
+        <p class="dim"><span class="dimName">身高逆差</span> <span>10分</span></p>
+        <p class="dim"><span class="dimName">花费</span> <span>10分</span></p>
     </div>
 
+    <div id="detail">
+
+    </div>
 </div>
 
 
