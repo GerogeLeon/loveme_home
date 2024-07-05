@@ -81,13 +81,13 @@
         try {
             const response = await fetch(url);
             if (!response.ok) {
-                throw new Error(`http error: ${response.status}`);
+                throw new Error(`http error: ${JSON.stringify(response)}`);
             }
             const body = await response.json();
-            if (body.code !== 'S00000') {
-                throw new Error(`biz error: ${body}`);
-            }
             const json = body.body;
+            if (body.code !== 'S00000' || json === null) {
+                throw new Error('biz error:' + JSON.stringify(body));
+            }
             // console.log(json);
 
             document.getElementById("total").innerHTML = json.total + '分';
