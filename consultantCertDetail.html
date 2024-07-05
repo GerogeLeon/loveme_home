@@ -17,43 +17,94 @@
         }
 
     </style>
-    <script>
-        function myFunction() {
-            document.getElementById("demo").innerHTML = "Hello JavaScript!";
-        }
-    </script>
+
 </head>
 <body>
 <h2 style="text-align: center;">顾问认证详情</h2>
 <div style="margin: auto;
             max-width: 400px;
-            border-style: solid;
+            /*border-style: solid;*/
             padding: 10px">
     <p style="display: flex;
               align-items: center;">
-        <img style="width:50px;
+        <img id="avatar" style="width:50px;
                     height:50px;
                     border-radius: 25px"
-             src="https://socialme.hopto.org/loveme/consultant_avatar/13_adf1e1b1b5e04839a433275ff308a9d8.jpg"
+             src=""
              alt="头像"/>
-        <span style="padding: 8px">小王</span>
+        <span id="name" style="padding: 8px"></span>
     </p>
-    <div style="max-width: 300px;">
-        <p class="dim"><span class="dimName">成功比例</span> <span>10分</span></p>
-        <p class="dim"><span class="dimName">用时</span> <span>10分</span></p>
-        <p class="dim"><span class="dimName">年龄分布</span> <span>10分</span></p>
-        <p class="dim"><span class="dimName">颜值分布</span> <span>10分</span></p>
-        <p class="dim"><span class="dimName">学历分布</span> <span>10分</span></p>
-        <p class="dim"><span class="dimName">颜值逆差</span> <span>10分</span></p>
-        <p class="dim"><span class="dimName">身高逆差</span> <span>10分</span></p>
-        <p class="dim"><span class="dimName">花费</span> <span>10分</span></p>
+    <div style="max-width: 250px;">
+        <p class="dim"><span class="dimName">成功比例</span> <span id="dim1"></span></p>
+        <p class="dim"><span class="dimName">用时</span> <span id="dim2"></span></p>
+        <p class="dim"><span class="dimName">年龄分布</span> <span id="dim3"></span></p>
+        <p class="dim"><span class="dimName">颜值分布</span> <span id="dim4"></span></p>
+        <p class="dim"><span class="dimName">学历分布</span> <span id="dim5"></span></p>
+        <p class="dim"><span class="dimName">颜值逆差</span> <span id="dim6"></span></p>
+        <p class="dim"><span class="dimName">身高逆差</span> <span id="dim7"></span></p>
+        <p class="dim"><span class="dimName">花费</span> <span id="dim8"></span></p>
     </div>
 
-    <div id="detail">
 
-    </div>
 </div>
 
+<script>
+    async function getData() {
+        console.log(location.href)
+        const queryString = location.search;
+        const params = new URLSearchParams(queryString);
+        const paramUid = params.get("uid");
+        const env = params.get("env");
+        if (env === null || env.length === 0
+            || paramUid === null || paramUid.length === 0
+        ) {
+            alert('uid and env params is required')
+            return;
+        }
+        const uid = parseInt(params.get("uid"));
 
+        let apiBaseUrl;
+        if (env === 'prod') {
+            apiBaseUrl = 'https://socialme.top/api'
+        } else if (env === 'beta') {
+            apiBaseUrl = 'https://socialme.top/beta/api'
+        } else if (env === 'local') {
+            apiBaseUrl = 'http://localhost:8080'
+        } else {//default to dev env
+            apiBaseUrl = 'https://socialme.hopto.org/api'
+        }
+
+        const url = apiBaseUrl + "/noAuth/consultantCert/detail?uid=" + uid;
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`Response status: ${response.status}`);
+            }
+            const body = await response.json();
+            if (body.code !== 'S00000') {
+                throw new Error(`biz error: ${body}`);
+            }
+            const json = body.body;
+            console.log(json);
+
+            // const detailEle=  document.getElementById("detail");
+            document.getElementById("name").innerHTML = json.name;
+            document.getElementById("avatar").src = json.avatar;
+            document.getElementById("dim1").innerHTML = json.dim1;
+            document.getElementById("dim2").innerHTML = json.dim2;
+            document.getElementById("dim3").innerHTML = json.dim3;
+            document.getElementById("dim4").innerHTML = json.dim4;
+            document.getElementById("dim5").innerHTML = json.dim5;
+            document.getElementById("dim6").innerHTML = json.dim6;
+            document.getElementById("dim7").innerHTML = json.dim7;
+            document.getElementById("dim8").innerHTML = json.dim8;
+
+        } catch (error) {
+            console.error(error.message);
+        }
+    }
+
+    getData()
+</script>
 </body>
 </html>
