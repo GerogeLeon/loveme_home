@@ -35,6 +35,9 @@
         <span id="name" style="padding: 8px"></span>
     </p>
     <div style="max-width: 250px;">
+        <p class="dim"><span class="dimName">总分</span> <span id="total"></span></p>
+        <p class="dim"><span class="dimName">等级</span> <span id="grade"></span></p>
+        <hr/>
         <p class="dim"><span class="dimName">成功比例</span> <span id="dim1"></span></p>
         <p class="dim"><span class="dimName">用时</span> <span id="dim2"></span></p>
         <p class="dim"><span class="dimName">年龄分布</span> <span id="dim3"></span></p>
@@ -85,19 +88,20 @@
                 throw new Error(`biz error: ${body}`);
             }
             const json = body.body;
-            console.log(json);
+            // console.log(json);
 
-            // const detailEle=  document.getElementById("detail");
+            document.getElementById("total").innerHTML = json.total + '分';
+            document.getElementById("grade").innerHTML = json.grade + '级';
             document.getElementById("name").innerHTML = json.name;
             document.getElementById("avatar").src = json.avatar;
-            document.getElementById("dim1").innerHTML = json.dim1;
-            document.getElementById("dim2").innerHTML = json.dim2;
-            document.getElementById("dim3").innerHTML = json.dim3;
-            document.getElementById("dim4").innerHTML = json.dim4;
-            document.getElementById("dim5").innerHTML = json.dim5;
-            document.getElementById("dim6").innerHTML = json.dim6;
-            document.getElementById("dim7").innerHTML = json.dim7;
-            document.getElementById("dim8").innerHTML = json.dim8;
+            document.getElementById("dim1").innerHTML = json.dim1 + '分';
+            document.getElementById("dim2").innerHTML = json.dim2 + '分';
+            document.getElementById("dim3").innerHTML = json.dim3 + '分';
+            document.getElementById("dim4").innerHTML = json.dim4 + '分';
+            document.getElementById("dim5").innerHTML = json.dim5 + '分';
+            document.getElementById("dim6").innerHTML = json.dim6 + '分';
+            document.getElementById("dim7").innerHTML = json.dim7 + '分';
+            document.getElementById("dim8").innerHTML = json.dim8 + '分';
 
         } catch (error) {
             console.error(error.message);
