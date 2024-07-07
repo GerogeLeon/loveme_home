@@ -75,7 +75,8 @@
         } else if (env === 'local') {
             apiBaseUrl = 'http://localhost:8080'
         } else {//default to dev env
-            apiBaseUrl = 'https://socialme.hopto.org/api'
+            // apiBaseUrl = 'https://socialme.hopto.org/api'
+            apiBaseUrl = 'http://socialme.hopto.org/api'
         }
 
         const url = apiBaseUrl + "/noAuth/consultantCert/detail?uid=" + uid;
