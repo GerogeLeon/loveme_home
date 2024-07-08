@@ -66,6 +66,7 @@
             return;
         }
         const uid = parseInt(params.get("uid"));
+        const sign = params.get("sign");
 
         let apiBaseUrl;
         if (env === 'prod') {
@@ -80,7 +81,7 @@
             // apiBaseUrl = 'http://socialme.hopto.org/api' //http is blocked by android webview engine
         }
 
-        const url = apiBaseUrl + "/noAuth/consultantCert/detail?uid=" + uid;
+        const url = apiBaseUrl + "/noAuth/consultantCert/detail?uid=" + uid + '&sign=' + sign;
         try {
             const response = await fetch(url);
             if (!response.ok) {
